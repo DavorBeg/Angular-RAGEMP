@@ -1,0 +1,15 @@
+<div style="width: 100%; height: 80vh; display: flex; justify-content: center; align-items: center;">
+    <div style="width: 520px; height: 200px; background-color: rgb(255, 255, 255); border-radius: 15px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+        <h3 style="color: rgb(33, 33, 33); margin-left: 10px; font-family:Arial, Helvetica, sans-serif;">Angular dialog box.</h3>
+        @if(this.buttonCounter > 0)
+        {
+            <p style="margin-left: 25px; color: rgb(33, 33, 33);">Button F2 is pressed {{ this.buttonCounter === 1 ? '1 time.' : this.buttonCounter + ' times.' }}</p>
+        }
+        <p style="margin-left: 25px; color: rgb(33, 33, 33);">This text is inside our first angular project</p>
+
+        <div style="margin-top: 70px; display: flex; justify-content: flex-start; align-items: center; width: 100%; height: 30px; background-color: rgb(133, 133, 133);">
+            <button style="margin-left: 10px;" (click)="SayHello()">Say hi!</button>
+            <button style="margin-left: 10px;" (click)="CloseDialog()">Close me</button>
+        </div>
+    </div> 
+</div>
