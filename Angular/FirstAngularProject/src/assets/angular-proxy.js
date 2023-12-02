@@ -4,9 +4,10 @@ document.addEventListener('SayHiEvent', function(event) {
         try
         {
                 console.log("SayHiEvent triggered!");
-                // lets si our parameters
-                console.log(event)
-                mp.gui.chat.push("hello world event have been triggered.");
+                mp.trigger('SayHiEvent', event.detail);
+                // this is some params
+                console.log(event.detail)
+
         }
         catch(error)
         {
@@ -19,7 +20,7 @@ document.addEventListener('CloseEvent', function(event) {
         try
         {
                 console.log("CloseEvent triggered!");
-                mp.gui.chat.push("Close event have been triggered.");
+                mp.trigger('CloseEvent');
         }
         catch(error)
         {
@@ -27,10 +28,17 @@ document.addEventListener('CloseEvent', function(event) {
         }
         
 });
-// From client side to CEF 
-mp.keys.bind(0x71, true, function() {
-        mp.gui.chat.push('F2 key is pressed.');
-        const event = document.createEvent("ClientButtonPressedEvent");
-        document.dispatchEvent(event)
 
-    });
+// FROM Client to CEF
+const AngularFunctions = {
+        'OnPlayerPressF2Button' : function() {
+            try {
+
+                const event = new CustomEvent("ClientButtonPressedEvent");
+                document.dispatchEvent(event);
+        
+            }
+            catch(error) { console.log(error) }              
+        }
+    }
+
