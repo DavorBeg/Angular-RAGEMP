@@ -124,4 +124,64 @@ const AngularFunctions = {
   }
 ```
 
+10. After added some basic events inside Angular, and added angular-proxy with it, lets build project by using `ng build` command.
+
+
+11. If build was succeeded, copy files from `/dist/<your-project-name-folder>/browser` and put it inside `client_packages` folder inside ragemp server.
+12. Open copied index.html file, find and delete next code:
+```
+<base href="/">
+```
+Also add below `<app-root>` your `angular-proxy.js` file like this:
+```
+<script src="./assets/angular-proxy.js"></script>
+```
+Dont forget to save and close index.html file.
+<hr />
+
+
+# Communication with client side
+### How to open and navigate inside my Angular CEF?
+```
+angular = mp.browsers.new("package://SignalRExample/AngularExample/index.html#examplePath")
+```
+> [!NOTE]
+> where `#examplePath` is path of your angular component.
+> If you want to open root path of applicaiton just use:
+> ```
+> angular = mp.browsers.new("package://SignalRExample/AngularExample/index.html")
+> ```
+
+### How to listen to events from angular proxy?
+
+```
+mp.events.add('SayHiEvent', (event) => {
+    mp.gui.chat.push(`!{DD6B20}Say hi event have been triggered from Angular with parameter: ` + event);
+
+})
+```
+
+### How to send data or trigger event on Angular CEF?
+```
+// If player press F2 button
+mp.keys.bind(0x71, true, function() {
+    angular.execute(`AngularFunctions['OnPlayerPressF2Button']()`);
+    
+});
+```
+
+# Result
+
+### Youtube video
+Result should look like this if you copy my angular project:
+[![Navigate to youtube](https://i.postimg.cc/2jM2mQyj/youtube-Link-IMG.png)](https://www.youtube.com/watch?v=YbMgcJOZbJc "Angular and RAGE MP"))
+
+### You need help?
+You can find me on rage mp official forum or on discord with name TroloveCro.
+
+
+
+# External resources
+If you dont like using my example of communication between angular and client side you can use
+package from `GeorgeHulpoi` called [RAGE Angular](https://github.com/GeorgeHulpoi/RAGEAngular)
 
