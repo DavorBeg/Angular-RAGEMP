@@ -174,7 +174,7 @@ mp.keys.bind(0x71, true, function() {
 
 ### Youtube video
 Result should look like this if you copy my angular project:
-[![Navigate to youtube](https://i.postimg.cc/2jM2mQyj/youtube-Link-IMG.png)](https://www.youtube.com/watch?v=YbMgcJOZbJc "Angular and RAGE MP"))
+[![Navigate to youtube](https://i.postimg.cc/2jM2mQyj/youtube-Link-IMG.png)](https://www.youtube.com/watch?v=YbMgcJOZbJc "Angular and RAGE MP")
 
 ### You need help?
 You can find me on rage mp official forum or on discord with name TroloveCro.
